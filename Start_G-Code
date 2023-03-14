@@ -23,8 +23,8 @@ M140 S{material_bed_temperature} ; start heating the bed to what is set in Cura
 M104 S{material_print_temperature} T0 ; start heating T0 to what is set in Cura
 
 ; Enable Filament Run-Out Sensor and set distance to 10mm
-;M412 S1
-;M412 D10
+M412 S1
+M412 D7
 
 ; Play song to annouce print is loaded and bed heating
 M117 Rammstein - Du Hast
@@ -60,8 +60,10 @@ M109 S{material_print_temperature}
 ; Ender 3 Custom Start G-code
 G92 E0 ; Reset Extruder
 G28 ; Home all axes
+; Bed leveling using BL-Touch
 G29 ; Auto-bed leveling
 M500 ; Save Mesh
+
 G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
 G1 X0.1 Y20 Z0.3 F5000.0 ; Move to start position
 M300 P250 ; play chime to indicate print starting
